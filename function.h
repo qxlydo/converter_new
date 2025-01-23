@@ -1,6 +1,22 @@
-
 #ifndef FUNCTION_H
 #define FUNCTION_H
+#include <limits>
+
+
+void clearInputBuffer(){
+    if (std::cin.fail()) { 
+        std::cin.clear(); 
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    }
+}
+
+
+bool funcValidation(int number, int min, int max){
+    if (number < min || number > max) {
+        return false;
+    }
+    return true;
+}
 
 
 class Temperature{
@@ -39,6 +55,7 @@ public:
 		return massa / ((height / 100) * (height / 100));
 	}
 };
+
 
 
 #endif
