@@ -17,6 +17,12 @@ bool funcValidation(int number, int min, int max){
     }
     return true;
 }
+bool funcValidationOne(int number, int minNumber){
+    if (number <= minNumber) {
+        return false;
+    }
+    return true;
+}
 
 
 class Temperature{

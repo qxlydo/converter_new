@@ -79,11 +79,21 @@ void converter_temperature(){
     }
 }
 void converterBmi(){
+    int min = 0;
     float massaValue, heightValue;
     std::cout << "Введите рост(см): \n";
-    std::cin >> heightValue;
+    while(!(std::cin >> heightValue) || !funcValidationOne(heightValue, min)) {
+            std::cout << "Ошибка! Введите правильный ввод ";
+            clearInputBuffer();
+            continue;
+        }
     std::cout << "Введите вес: \n";
-    std::cin >> massaValue;
+    while(!(std::cin >> massaValue) || !funcValidationOne(massaValue, min)) {
+            std::cout << "Ошибка! Введите правильный ввод ";
+            clearInputBuffer();
+            continue;
+        }
+
 
     BMI bmi;
     std::cout << "-----------------------\n";
