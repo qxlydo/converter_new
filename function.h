@@ -1,6 +1,21 @@
 #ifndef FUNCTION_H
 #define FUNCTION_H
 #include <limits>
+#include <cmath>
+
+class Finance{
+public:
+    auto creditMonthlyFee(int sumCredit, float percent, int term){
+        float resPercent;
+        resPercent = percent / 100.0 / 12.0;
+        float sumPercentOne = sumCredit * resPercent * std::pow(1 + resPercent, term * 12);
+        float sumPercentTwo = std::pow(1 + resPercent, term * 12) - 1;
+        return sumPercentOne / sumPercentTwo;
+
+    }
+};
+
+// M = P * (i * (1 + i)^n) / ((1 + i)^n - 1)
 
 
 void clearInputBuffer(){
@@ -9,7 +24,6 @@ void clearInputBuffer(){
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
 }
-
 
 bool funcValidation(int number, int min, int max){
     if (number < min || number > max) {
@@ -23,7 +37,6 @@ bool funcValidationOne(int number, int minNumber){
     }
     return true;
 }
-
 
 class Temperature{
 public:
@@ -51,9 +64,6 @@ public:
         return (farengeit - 32) * 5.0 / 9.0 + 273.15;
     }
 };
-
-
-// index = massBody / ((height / 100) * (height / 100));
 
 class BMI{
 public:
